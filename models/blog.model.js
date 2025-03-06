@@ -1,22 +1,28 @@
-const fs = require("fs");
-const path = require("path");
-const blogsFile = path.join(__dirname, "../data/blogs.json");
+const fs = require('fs');
+const path = require('path');
+const blogFilePath = path.join(__dirname, '../data/blog.json');
 
 const getBlogs = () => {
-    if (!fs.existsSync(blogsFile)) return [];
-    const data = fs.readFileSync(blogsFile);
+    const data = fs.readFileSync(blogFilePath);
     return JSON.parse(data);
-};
-
-const saveBlogs = (blogs) => {
-    fs.writeFileSync(blogsFile, JSON.stringify(blogs, null, 2));
 };
 
 const addBlog = (blog) => {
     const blogs = getBlogs();
     blogs.push(blog);
-    saveBlogs(blogs);
-    return blog;
+    fs.writeFileSync(blogFilePath, JSON.stringify(blogs, null, 2));
 };
 
-module.exports = { getBlogs, addBlog };
+const updateBlog = (id, updatedData) => {
+    let blogs = getBlogs();
+    blogs = blogs.map(blog => blog.id === id ? { ...blog, ...updatedData } : blog);
+    fs.writeFileSync(blogFilePath, JSON.stringify(blogs, null, 2));
+};
+
+const deleteBlog = (id) => {
+    let blogs = getBlogs();
+    blogs = blogs.filter(blog => blog.id !== id);
+    fs.writeFileSync(blogFilePath, JSON.stringify(blogs, null, 2));
+};
+
+module.exports = { getBlogs, addBlog, updateBlog, deleteBlog };

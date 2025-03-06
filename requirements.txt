@@ -1,0 +1,38 @@
+Blog Platformasi
+
+Maqsadi: Foydalanuvchi oz maqolalarini yozishi, nashr etishi va boshqalar tomonidan oqilishi uchun blog platformasi yaratish.
+
+Asosiy modellar:
+    Users (foydalanuvchilar):
+        name
+        email
+        password
+
+    BlogPost (maqolalar):
+        title
+        content
+        userId
+        createdAt
+        viewsCount -> 0
+
+Talablar:
+
+    Funksional talablar:
+        - Foydalanuvchi name, email va password orqali royxatdan otishi kerak.
+        - Foydalanuvchi email va password orqali profilga kira olishi kerak.
+        - Foydalanuvchi name, email va password malumotlarini yangilay olishi kerak.
+        - Foydalanuvchi oz profilidan chiqib (logout) boshqa profilga kira olishi kerak.
+        - Foydalanuvchi maqola yozishi va nashr etishi kerak.
+        - Foydalanuvchi oz yozgan maqolalarini korishi va ochirish yoki tahrirlash imkoniyatiga ega bolishi kerak.
+        - Har bir maqola necha marta oqilganini korish mumkin bolishi kerak.
+
+    Nofunksional talablar:
+        - Foydalanuvchi malumotlari xavfsiz saqlanishi kerak.
+        - Blog platformasi tezkor va ishlatish uchun qulay bolishi kerak.
+        - Foydalanuvchi interfeysi oddiy va tushunarli bolishi lozim.
+        - Maqolalar tez yuklanishi va samarali indekslanishi kerak.
+
+    Qoshimcha talablar:
+        - Foydalanuvchi maqolalarga izoh qoldira olishi kerak.
+        - Maqolalarni qidirish va saralash imkoniyati bolishi kerak.
+        - Foydalanuvchi maqolalarga "like" qoyishi yoki ulashishi mumkin bolishi kerak.

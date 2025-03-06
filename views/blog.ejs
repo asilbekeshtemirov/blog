@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bloglar</title>
+</head>
+<body>
+    <h1>Bloglar ro'yxati</h1>
+    <ul>
+        <% blogs.forEach(blog => { %>
+            <li>
+                <h2><%= blog.title %></h2>
+                <p><%= blog.content %></p>
+                <small><%= blog.createdAt.toLocaleString() %></small>
+            </li>
+        <% }) %>
+    </ul>
+</body>
+</html>
